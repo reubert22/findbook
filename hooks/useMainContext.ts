@@ -8,6 +8,11 @@ export const MainContext = createContext<MainContextType>({
       totalItems: 0,
     },
   },
+  loading: {
+    state: {
+      loading: false,
+    },
+  },
 });
 
 export function useMainContext() {

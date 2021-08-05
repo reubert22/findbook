@@ -5,12 +5,14 @@ import { booksReducer, BooksInitialState } from "../reducers/books";
 export const useBooks = () => {
   const [state, dispatch] = useReducer(booksReducer, BooksInitialState);
 
-  const setBooks = useCallback((item) => {
-    dispatch({
-      type: bookActionTypes.SET_BOOKS,
-      item,
-    });
-  }, []);
+  const setBooks = useCallback(
+    (item) =>
+      dispatch({
+        type: bookActionTypes.SET_BOOKS,
+        item,
+      }),
+    []
+  );
 
   return {
     state,
