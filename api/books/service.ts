@@ -1,11 +1,6 @@
 import * as repository from "./repository";
+import { useBooks } from "../../hooks/useBooks";
 
-export const getBooks = async () => {
-  try {
-    const response = await repository.getBooks("js");
-    console.log("getBooks -> response", response);
-    return response.data;
-  } catch (e) {
-    console.log(e);
-  }
+export const getBooks = async (query?: string) => {
+  return await repository.getBooks(query ?? "js");
 };
