@@ -1,17 +1,13 @@
-import { getBooks } from "../api/books/service";
-import { Search } from "../components/Search/Search";
-import styles from "./Home.module.scss";
+import React from "react";
+import styles from "./About.module.scss";
 
-export default function Home() {
+export default function About() {
   return (
     <div className={styles["container"]}>
       <main className={styles["main"]}>
-        <Search />
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-
-        <button onClick={() => getBooks()}>Call</button>
 
         <p className={styles.description}>
           Get started by editing{" "}

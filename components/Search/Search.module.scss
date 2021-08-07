@@ -1,0 +1,45 @@
+@import "../../variables.scss";
+
+.container {
+  background-color: $input-bg;
+  border-radius: 10px;
+  box-shadow: 5px 5px 80px rgba(212, 173, 134, 0.122623);
+  display: flex;
+  height: 48px;
+  position: relative;
+  width: 100%;
+
+  .img {
+    align-items: center;
+    display: flex;
+    height: 48px;
+    left: 10px;
+    position: absolute;
+    width: 16px;
+  }
+
+  input {
+    background-color: $input-bg;
+    border-radius: 10px;
+    border: none;
+    box-sizing: border-box;
+    color: $black;
+    font-family: $SFProDisplayB;
+    font-size: 16px;
+    height: 48px;
+    letter-spacing: 1px;
+    line-height: 18px;
+    outline: none;
+    padding-left: 36px;
+    padding-right: 15px;
+    width: 100%;
+
+    &::placeholder {
+      color: $input-placeholder;
+      font-family: $SFProDisplaySB;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+      line-height: 18px;
+    }
+  }
+}

@@ -15,20 +15,26 @@ a {
   box-sizing: border-box;
 }
 
-// TODO: move that to a component
-.bar {
-  display: flex;
-  position: fixed;
-  bottom: 0px;
-  height: 50px;
-  background: #fff;
-  width: 100%;
+@font-face {
+  font-display: swap;
+  font-family: "SFProDisplay";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/FontsFree-Net-SFProDisplay-Regular.ttf");
 }
 
 @font-face {
-  font-family: "SFProDisplay";
-  src: url("/fonts/FontsFree-Net-SFProDisplay-Regular.ttf");
-  font-style: normal;
-  font-weight: 400;
   font-display: swap;
+  font-family: "SFProDisplaySB";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/FontsFree-Net-SFProDisplay-Semibold.ttf");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "SFProDisplayB";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/FontsFree-Net-SFProDisplay-Bold.ttf");
 }

@@ -1,20 +1,20 @@
 @import "../../variables.scss";
 
 .container {
-  display: flex;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100%;
   background-color: $background-color;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
 
   span {
-    font-size: 42px;
-    font-family: $SFProDisplay;
-    -webkit-animation: fadeAnimation 3.5s infinite;
     -moz-animation: fadeAnimation 3.5s infinite;
     -o-animation: fadeAnimation 3.5s infinite;
+    -webkit-animation: fadeAnimation 3.5s infinite;
     animation: fadeAnimation 3.5s infinite;
+    font-family: $SFProDisplay;
+    font-size: 42px;
   }
 }
 

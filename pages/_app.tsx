@@ -9,6 +9,7 @@ import { useBooks } from "../hooks/useBooks";
 import { useLoading } from "../hooks/useLoading";
 
 import "../index.scss";
+import { MenuBar } from "../components/MenuBar/MenuBar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const books = useBooks();
@@ -50,7 +51,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </MainContext.Provider>
       )}
-      {/* {!state.loading && <div className="bar">Bar</div>} */}
+      {!state.loading && <MenuBar />}
     </>
   );
 }
