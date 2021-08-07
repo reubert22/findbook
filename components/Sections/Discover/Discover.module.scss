@@ -1,0 +1,149 @@
+@import "../../../variables.scss";
+
+.container {
+  margin: 30px 0px;
+
+  .scroller {
+    display: flex;
+    width: 100%;
+    height: 500px;
+    margin: auto;
+    overflow: scroll;
+
+    .spacer {
+      min-width: 5.5%;
+      height: 80%;
+      margin: auto;
+    }
+
+    .card {
+      min-width: 75%;
+      height: 80%;
+      margin: auto;
+      margin-right: 20px;
+      background: white;
+      transition: 0.5s ease;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+
+    &.one {
+      margin-left: 20px;
+    }
+
+    &.six {
+      margin-right: 20px;
+    }
+  }
+
+  .slider-container {
+    width: auto;
+    height: 210px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+
+    .card-container {
+      width: 272px;
+      height: 128px;
+      background-color: $dark-blue;
+      border-radius: 5px;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-right: 10px;
+
+      &:first-child {
+        // width: 302px;
+        // height: 139px;
+        margin-left: 20px;
+
+        @media (min-width: $md) {
+          margin-left: 50px;
+        }
+
+        @media (min-width: $xl) {
+          margin-left: 100px;
+        }
+      }
+
+      .title-author-read-container {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .title-author-container {
+          display: flex;
+          flex-direction: column;
+
+          .title {
+            margin-bottom: 5px;
+            //font-family: Playfair Display;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 27px;
+            line-height: 36px;
+            letter-spacing: 2px;
+            color: #fefefe;
+          }
+
+          .author {
+            font-family: $SFProDisplay;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 1.28889px;
+            color: #e7e7e1;
+            font-style: italic;
+          }
+        }
+
+        .read-container {
+          display: flex;
+          align-items: center;
+
+          .img {
+            width: 16px;
+            height: 16px;
+            margin-right: 2px;
+          }
+
+          .read-number {
+            margin-right: 2px;
+          }
+          .read-number,
+          .title {
+            font-family: $SFProDisplayB;
+            font-style: normal;
+            font-size: 12px;
+            line-height: 14px;
+            letter-spacing: 0.020635px;
+            color: #e7e7e1;
+          }
+
+          .title {
+            font-family: $SFProDisplay;
+          }
+        }
+      }
+
+      .thumb-container {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .img {
+          height: 109px;
+          width: 73px;
+        }
+      }
+    }
+  }
+}

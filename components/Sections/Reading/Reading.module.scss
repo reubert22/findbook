@@ -1,0 +1,31 @@
+@import "../../../variables.scss";
+
+.container {
+  .reading-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 136px;
+
+    .img {
+      position: absolute;
+      left: 20px;
+
+      @media (min-width: $md) {
+        left: 50px;
+      }
+
+      @media (min-width: $xl) {
+        left: 100px;
+      }
+    }
+
+    .reading {
+      background-color: $light-green;
+      width: 331px;
+      height: 100px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+}
