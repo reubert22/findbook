@@ -4,10 +4,10 @@ const defaultParam = {
   key: process.env.API_KEY,
 };
 
-export const getBooks = (query: string) =>
+export const getBooks = (title: string, author?: string) =>
   apiClient.get("", {
     params: {
       ...defaultParam,
-      q: query,
+      q: `${title}+inauthor:${author}`,
     },
   });

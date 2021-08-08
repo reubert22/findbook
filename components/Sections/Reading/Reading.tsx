@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import styles from "./Reading.module.scss";
 import { Title } from "../Title/Title";
 import Image from "next/image";
+import { getBooks } from "../../../api/books/repository";
 
 export const Reading = () => {
+  const [reading, setReading] = useState<{
+    volumeInfo: {
+      title: "";
+      authors: [];
+      imageLinks: {
+        thumbnail: "";
+      };
+    };
+  }>();
+
+  const getReading = useCallback(async () => {
+    try {
+      const {
+        data: { items },
+      } = await getBooks("Originals", "Adam Grant");
+      if (items.length > 0) {
+        setReading(items[0]);
+      }
+    } catch (e) {}
+  }, []);
+
+  useEffect(() => {
+    getReading();
+  }, []);
+
   return (
     <div className={styles["container"]}>
       <Title title="Currently Reading" linkTitle="All" link="/#" />
@@ -11,7 +37,11 @@ export const Reading = () => {
       <div className={styles["reading-container"]}>
         <div className={styles["img"]}>
           <Image
-            src="http://books.google.com/books/content?id=5unrAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+            src={
+              reading?.volumeInfo.imageLinks
+                ? reading?.volumeInfo.imageLinks.thumbnail
+                : "/imgs/no-image.png"
+            }
             height={136}
             width={91}
             alt="Home"
@@ -21,8 +51,15 @@ export const Reading = () => {
         <div className={styles["reading"]}>
           <div className={styles["title-subtitles"]}>
             <div className={styles["title-author-container"]}>
-              <span className={styles["title"]}>Originals</span>
-              <span className={styles["author"]}>by Adam Grant</span>
+              <span className={styles["title"]}>
+                {reading?.volumeInfo.title}
+              </span>
+              <span className={styles["author"]}>
+                by{" "}
+                {reading?.volumeInfo.authors
+                  ? reading?.volumeInfo.authors.toString()
+                  : ""}
+              </span>
             </div>
             <div className={styles["chapters-container"]}>
               <div className={styles["img"]}>
