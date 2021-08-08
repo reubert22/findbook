@@ -1,87 +1,90 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from "./Discover.module.scss";
-import Link from "next/link";
 import Image from "next/image";
 import { Title } from "../Title/Title";
+import { getBooks } from "../../../api/books/service";
 
-//TODO:x
-export const Discover = () => (
-  <div className={styles["container"]}>
-    <Title title="Discover new book" linkTitle="More" link="/#" />
+type BooksType = {
+  volumeInfo: {
+    title: string;
+    authors: string[];
+    imageLinks: { thumbnail: string };
+  };
+};
 
-    <div className={styles["slider-container"]}>
-      <div className={styles["card-container"]}>
-        <div className={styles["title-author-read-container"]}>
-          <div className={styles["title-author-container"]}>
-            <span className={styles["title"]}>Hookedㅤㅤ</span>
-            <span className={styles["author"]}>Nir Eyal</span>
-          </div>
-          <div className={styles["read-container"]}>
-            <div className={styles["img"]}>
-              <Image
-                src="/imgs/svg/graph.svg"
-                height={17}
-                width={16}
-                alt="Home"
-              />
+//TODO:
+export const Discover = () => {
+  const [books, setBooks] = useState<BooksType[]>([]);
+  console.log("Discover -> books", books);
+
+  const getBook = useCallback(async (title: string, author: string) => {
+    try {
+      const {
+        data: { items },
+      } = await getBooks(title, author);
+      if (items.length > 0) {
+        setBooks([...books, items[0]]);
+      }
+    } catch (e) {}
+  }, []);
+
+  useEffect(() => {
+    getBook("Hooked", "Nir Eyal");
+    getBook("The One Thing", "Garry Keller");
+  }, []);
+
+  return (
+    <div className={styles["container"]}>
+      <Title title="Discover new book" linkTitle="More" link="/#" />
+
+      <div className={styles["slider-container"]}>
+        {books.map((item) => (
+          <div className={styles["card-container"]}>
+            <div className={styles["title-author-read-container"]}>
+              <div className={styles["title-author-container"]}>
+                <span className={styles["title"]}>
+                  {item.volumeInfo.title}ㅤㅤ
+                </span>
+                <span className={styles["author"]}>
+                  {item.volumeInfo?.authors.toString()}
+                </span>
+              </div>
+              <div className={styles["read-container"]}>
+                <div className={styles["img"]}>
+                  <Image
+                    src="/imgs/svg/graph.svg"
+                    height={17}
+                    width={16}
+                    alt="Home"
+                  />
+                </div>
+                <span className={styles["read-number"]}>120+ </span>
+                <span className={styles["title"]}> Read now</span>
+              </div>
             </div>
-            <span className={styles["read-number"]}>120+ </span>
-            <span className={styles["title"]}> Read now</span>
-          </div>
-        </div>
-        <div className={styles["thumb-container"]}>
-          <div className={styles["img"]}>
-            <Image
-              className="avatar"
-              src="http://books.google.com/books/content?id=5unrAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-              height={109}
-              width={73}
-              alt="Home"
-            />
-            <style jsx global>{`
-              .avatar {
-                border-radius: 5px;
-              }
-            `}</style>
-          </div>
-        </div>
-      </div>
-      <div className={styles["card-container"]}>
-        <div className={styles["title-author-read-container"]}>
-          <div className={styles["title-author-container"]}>
-            <span className={styles["title"]}>Hooked</span>
-            <span className={styles["author"]}>Nir Eyal</span>
-          </div>
-          <div className={styles["read-container"]}>
-            <div className={styles["img"]}>
-              <Image
-                src="/imgs/svg/graph.svg"
-                height={16}
-                width={16}
-                alt="Home"
-              />
+            <div className={styles["thumb-container"]}>
+              <div className={styles["img"]}>
+                <Image
+                  className="avatar"
+                  src={
+                    item.volumeInfo.imageLinks
+                      ? item.volumeInfo.imageLinks.thumbnail
+                      : "/imgs/no-image.png"
+                  }
+                  height={109}
+                  width={73}
+                  alt="Home"
+                />
+                <style jsx global>{`
+                  .avatar {
+                    border-radius: 5px;
+                  }
+                `}</style>
+              </div>
             </div>
-            <span className={styles["read-number"]}>120+ </span>
-            <span className={styles["title"]}> Read now</span>
           </div>
-        </div>
-        <div className={styles["thumb-container"]}>
-          <div className={styles["img"]}>
-            <Image
-              className="avatar"
-              src="http://books.google.com/books/content?id=5unrAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-              height={109}
-              width={73}
-              alt="Home"
-            />
-            <style jsx global>{`
-              .avatar {
-                border-radius: 5px;
-              }
-            `}</style>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
-  </div>
-);
+  );
+};
