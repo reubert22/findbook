@@ -10,7 +10,6 @@ const Initial = () => (
       <Search />
 
       <Home />
-      <Reading />
     </main>
   </div>
 );

@@ -1,12 +1,12 @@
 import React from "react";
-import { useMainContext } from "../../hooks/useMainContext";
 import styles from "./Home.module.scss";
 import { Discover } from "../Sections/Discover/Discover";
 import { LayoutContainer } from "../LayoutContainer/LayoutContainer";
+import { Reviews } from "../Sections/Reviews/Reviews";
+import { Reading } from "../Sections/Reading/Reading";
+import { List } from "../List/List";
 
 export const Home = () => {
-  const c = useMainContext();
-  console.log("Home -> c", c);
   return (
     <div className={styles["container"]}>
       <LayoutContainer>
@@ -17,6 +17,15 @@ export const Home = () => {
       </LayoutContainer>
 
       <Discover />
+      <Reading />
+      <Reviews />
+      <List
+        titleProps={{
+          title: "You may be interested",
+          linkTitle: "All",
+          link: "/#",
+        }}
+      />
     </div>
   );
 };

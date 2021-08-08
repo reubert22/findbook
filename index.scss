@@ -20,7 +20,7 @@ a {
   font-family: "SFProDisplay";
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/FontsFree-Net-SFProDisplay-Regular.ttf");
+  src: url("/fonts/SFProDisplay/SFProDisplay-Regular.ttf");
 }
 
 @font-face {
@@ -28,7 +28,7 @@ a {
   font-family: "SFProDisplaySB";
   font-style: normal;
   font-weight: 600;
-  src: url("/fonts/FontsFree-Net-SFProDisplay-Semibold.ttf");
+  src: url("/fonts/SFProDisplay/SFProDisplay-Semibold.ttf");
 }
 
 @font-face {
@@ -36,5 +36,29 @@ a {
   font-family: "SFProDisplayB";
   font-style: normal;
   font-weight: 700;
-  src: url("/fonts/FontsFree-Net-SFProDisplay-Bold.ttf");
+  src: url("/fonts/SFProDisplay/SFProDisplay-Bold.ttf");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "PlayFairB";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/PlayFair/PlayfairDisplay-Bold.ttf");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "RobotoLight";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/Roboto/Roboto-Light.ttf");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "RobotoB";
+  font-style: normal;
+  font-weight: 900;
+  src: url("/fonts/Roboto/Roboto-Bold.ttf");
 }

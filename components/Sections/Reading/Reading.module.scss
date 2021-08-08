@@ -1,6 +1,8 @@
 @import "../../../variables.scss";
 
 .container {
+  position: relative;
+
   .reading-container {
     position: relative;
     display: flex;
@@ -26,6 +28,83 @@
       height: 100px;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
+      padding: 12px 19px;
+
+      .oval-wave {
+        position: absolute;
+        top: 0px;
+        left: calc(80% - 10px);
+        //mix-blend-mode: overlay;
+      }
+
+      .rounded {
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        top: 10px;
+        left: calc(65% - 20px);
+        border-bottom-left-radius: 18px * 2;
+        border-bottom-right-radius: 18px * 2;
+      }
+
+      .title-subtitles {
+        height: 100%;
+        padding-left: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .title-author-container {
+          display: flex;
+          flex-direction: column;
+
+          .title {
+            font-family: $PlayFairB;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 27px;
+            letter-spacing: 2px;
+            color: $gray-font-secondary;
+          }
+
+          .author {
+            font-family: $RobotoLight;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 10px;
+            line-height: 12px;
+            color: $gray-font-tertiary;
+          }
+        }
+
+        .chapters-container {
+          height: 16px;
+          display: flex;
+          align-items: center;
+
+          .img {
+            width: 16px;
+            height: 16px;
+            margin-left: 100px;
+          }
+
+          .chapter {
+            margin-left: 19px;
+            font-family: $SFProDisplay;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 10px;
+            line-height: 12px;
+            letter-spacing: 0.020635px;
+            color: $gray-font-secondary;
+
+            .now {
+              color: $light-pink;
+            }
+          }
+        }
+      }
     }
   }
 }

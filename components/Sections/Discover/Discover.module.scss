@@ -39,18 +39,16 @@
   }
 
   .slider-container {
-    width: auto;
-    height: 210px;
-    overflow-x: scroll;
+    overflow-x: hidden;
     overflow-y: hidden;
     white-space: nowrap;
     display: flex;
     align-items: center;
 
     .card-container {
-      width: 272px;
-      height: 128px;
-      background-color: $dark-blue;
+      width: 250px;
+      height: 125px;
+      background-color: #451475;
       border-radius: 5px;
       padding: 15px 20px;
       display: flex;
@@ -59,10 +57,10 @@
       margin-right: 10px;
 
       &:first-child {
-        // width: 302px;
-        // height: 139px;
+        width: 900px;
+        height: 137px;
         margin-left: 20px;
-
+        background-color: $dark-blue;
         @media (min-width: $md) {
           margin-left: 50px;
         }
