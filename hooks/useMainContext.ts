@@ -7,6 +7,7 @@ export const MainContext = createContext<MainContextType>({
       items: [],
       totalItems: 0,
     },
+    setBooks: () => {},
   },
   loading: {
     state: {

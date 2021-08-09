@@ -23,6 +23,10 @@
         color: $gray-font;
         margin-top: 10px;
         margin-bottom: 5px;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
       }
 
       .author {
@@ -32,6 +36,10 @@
         font-size: 10px;
         line-height: 12px;
         color: $gray-font;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
       }
     }
   }

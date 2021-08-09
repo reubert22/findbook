@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Home.module.scss";
 import { Discover } from "../Sections/Discover/Discover";
 import { LayoutContainer } from "../LayoutContainer/LayoutContainer";

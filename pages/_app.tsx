@@ -10,8 +10,10 @@ import { useLoading } from "../hooks/useLoading";
 
 import "../index.scss";
 import { MenuBar } from "../components/MenuBar/MenuBar";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
   const books = useBooks();
   const loading = useLoading();
   const { setLoading, state } = loading;
@@ -44,14 +46,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="description" content="Find books" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {state.loading ? (
+      {state.loading && router.pathname === "/" ? (
         <Splash />
       ) : (
         <MainContext.Provider value={{ books, loading }}>
           <Component {...pageProps} />
         </MainContext.Provider>
       )}
-      {!state.loading && <MenuBar />}
+      {!state.loading && router.pathname === "/" && <MenuBar />}
     </>
   );
 }

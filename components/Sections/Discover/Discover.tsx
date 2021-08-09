@@ -23,6 +23,7 @@ export const Discover = () => {
         data: { items },
       } = await getBooks(title, author);
       if (items.length > 0) {
+        console.log(">>>>>>>>", [...books, items[0]]);
         setBooks([...books, items[0]]);
       }
     } catch (e) {}

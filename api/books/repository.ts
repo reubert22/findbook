@@ -11,3 +11,5 @@ export const getBooks = (title: string, author?: string) =>
       q: `${title}+inauthor:${author}`,
     },
   });
+
+export const getBookById = (id: string) => apiClient.get(id);

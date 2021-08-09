@@ -1,47 +1,132 @@
-import React from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import styles from "./About.module.scss";
 
+import { useRouter } from "next/router";
+import { getBookById } from "../../api/books/service";
+import { LayoutContainer } from "../../components/LayoutContainer/LayoutContainer";
+import Image from "next/image";
+
+type BooksType = {
+  volumeInfo: {
+    subtitle: string;
+    description: string;
+    title: string;
+    authors: string[];
+    imageLinks: { thumbnail: string };
+  };
+};
+
 export default function About() {
+  const [book, setBook] = useState<BooksType>();
+  const {
+    query: { id },
+    back,
+  } = useRouter();
+
+  const getBook = useCallback(async (id) => {
+    try {
+      const response = await getBookById(id);
+      setBook(response.data);
+    } catch (e) {}
+  }, []);
+
+  useEffect(() => {
+    if (id) {
+      getBook(id);
+    }
+  }, [id]);
+
   return (
     <div className={styles["container"]}>
       <main className={styles["main"]}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <div className={styles["header-bg"]} />
 
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        <LayoutContainer>
+          <div className={styles["back-container"]}>
+            <div onClick={() => back()} className={styles["img"]}>
+              <Image
+                className="book-list-thumb"
+                src={"/imgs/svg/back.svg"}
+                height={14}
+                width={14}
+                alt="Back"
+              />
+            </div>
+          </div>
+          <div className={styles["picture-container"]}>
+            <Image
+              className="book-list-thumb"
+              src={
+                book?.volumeInfo.imageLinks
+                  ? book?.volumeInfo.imageLinks.thumbnail
+                  : "/imgs/no-image.png"
+              }
+              height={book?.volumeInfo.imageLinks ? 234 : 100}
+              width={151}
+              alt={book?.volumeInfo.title}
+            />
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+            <style jsx global>{`
+              .book-list-thumb {
+                border-radius: 5px;
+              }
+            `}</style>
+          </div>
+          <div className={styles["title-sub-container"]}>
+            <span className={styles["title"]}>{book?.volumeInfo.title}</span>
+            <span className={styles["subtitle"]}>
+              {book?.volumeInfo.subtitle
+                ? ` : ${book?.volumeInfo.subtitle}`
+                : ""}
+            </span>
+          </div>
+          <div className={styles["author-container"]}>
+            <span className={styles["author"]}>
+              {book?.volumeInfo.authors.toString()}
+            </span>
+          </div>
+          <span className={styles["description"]}>
+            {book?.volumeInfo.description.replace(/(<([^>]+)>)/gi, "")}
+          </span>
+        </LayoutContainer>
+        <div className={styles["menu-container"]}>
+          <div className={styles["menu"]}>
+            <div className={styles["section"]}>
+              <div title="Home" className={styles["img"]}>
+                <Image
+                  src="/imgs/svg/book-open.svg"
+                  height={16}
+                  width={16}
+                  alt="Read"
+                />
+              </div>
+              <span className={styles["title"]}>Read</span>
+            </div>
+            <div className={styles["divisor-right"]} />
+            <div className={styles["section"]}>
+              <div title="Home" className={styles["img"]}>
+                <Image
+                  src="/imgs/svg/headphones.svg"
+                  height={16}
+                  width={16}
+                  alt="Listen"
+                />
+              </div>
+              <span className={styles["title"]}>Listen</span>
+            </div>
+            <div className={styles["divisor-right"]} />
+            <div className={styles["section"]}>
+              <div title="Home" className={styles["img"]}>
+                <Image
+                  src="/imgs/svg/share.svg"
+                  height={16}
+                  width={16}
+                  alt="Share"
+                />
+              </div>
+              <span className={styles["title"]}>Share</span>
+            </div>
+          </div>
         </div>
       </main>
     </div>
