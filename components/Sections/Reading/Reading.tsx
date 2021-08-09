@@ -3,9 +3,11 @@ import styles from "./Reading.module.scss";
 import { Title } from "../Title/Title";
 import Image from "next/image";
 import { getBooks } from "../../../api/books/repository";
+import Link from "next/link";
 
 export const Reading = () => {
   const [reading, setReading] = useState<{
+    id: "";
     volumeInfo: {
       title: "";
       authors: [];
@@ -48,34 +50,36 @@ export const Reading = () => {
           />
         </div>
 
-        <div className={styles["reading"]}>
-          <div className={styles["title-subtitles"]}>
-            <div className={styles["title-author-container"]}>
-              <span className={styles["title"]}>
-                {reading?.volumeInfo.title}
-              </span>
-              <span className={styles["author"]}>
-                by{" "}
-                {reading?.volumeInfo.authors
-                  ? reading?.volumeInfo.authors.toString()
-                  : ""}
-              </span>
-            </div>
-            <div className={styles["chapters-container"]}>
-              <div className={styles["img"]}>
-                <Image
-                  src="/imgs/svg/marker.svg"
-                  height={16}
-                  width={16}
-                  alt="Marker"
-                />
+        <Link href={`/About?id=${reading?.id}`}>
+          <div className={styles["reading"]}>
+            <div className={styles["title-subtitles"]}>
+              <div className={styles["title-author-container"]}>
+                <span className={styles["title"]}>
+                  {reading?.volumeInfo.title}
+                </span>
+                <span className={styles["author"]}>
+                  by{" "}
+                  {reading?.volumeInfo.authors
+                    ? reading?.volumeInfo.authors.toString()
+                    : ""}
+                </span>
               </div>
-              <span className={styles["chapter"]}>
-                Chapter <span className={styles["now"]}>2</span> From 9
-              </span>
+              <div className={styles["chapters-container"]}>
+                <div className={styles["img"]}>
+                  <Image
+                    src="/imgs/svg/marker.svg"
+                    height={16}
+                    width={16}
+                    alt="Marker"
+                  />
+                </div>
+                <span className={styles["chapter"]}>
+                  Chapter <span className={styles["now"]}>2</span> From 9
+                </span>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
