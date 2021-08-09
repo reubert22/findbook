@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { getBookById } from "../../api/books/service";
 import { LayoutContainer } from "../../components/LayoutContainer/LayoutContainer";
 import Image from "next/image";
+import { NoImage } from "../../components/NoImage/NoImage";
 
 type BooksType = {
   volumeInfo: {
@@ -12,7 +13,7 @@ type BooksType = {
     description: string;
     title: string;
     authors: string[];
-    imageLinks: { thumbnail: string };
+    imageLinks: { medium: string };
   };
 };
 
@@ -71,7 +72,7 @@ export default function About() {
 
         <LayoutContainer>
           <div className={styles["back-container"]}>
-            <div onClick={() => back()} className={styles["img"]}>
+            <div onClick={back} className={styles["img"]}>
               <Image
                 src={"/imgs/svg/back.svg"}
                 height={14}
@@ -81,17 +82,17 @@ export default function About() {
             </div>
           </div>
           <div className={styles["picture-container"]}>
-            <Image
-              className="book-list-thumb"
-              src={
-                book?.volumeInfo.imageLinks
-                  ? book?.volumeInfo.imageLinks.thumbnail
-                  : "/imgs/no-image.png"
-              }
-              height={book?.volumeInfo.imageLinks ? 234 : 100}
-              width={151}
-              alt={book?.volumeInfo.title}
-            />
+            {book?.volumeInfo.imageLinks ? (
+              <Image
+                className="book-list-thumb"
+                src={book?.volumeInfo.imageLinks.medium}
+                height={book?.volumeInfo.imageLinks ? 234 : 100}
+                width={151}
+                alt={book?.volumeInfo.title}
+              />
+            ) : (
+              <NoImage height={234} width={151} />
+            )}
 
             <style jsx global>{`
               .book-list-thumb {

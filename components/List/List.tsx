@@ -5,6 +5,7 @@ import { LayoutContainer } from "../LayoutContainer/LayoutContainer";
 import Image from "next/image";
 import { useMainContext } from "../../hooks/useMainContext";
 import Link from "next/link";
+import { NoImage } from "../NoImage/NoImage";
 
 type ListProps = {
   titleProps?: {
@@ -29,17 +30,17 @@ export const List: React.FC<ListProps> = ({ titleProps }) => {
           {items.map(({ volumeInfo, id }) => (
             <Link key={`book-${id}`} href={`/About?id=${id}`}>
               <div className={styles["books-container"]}>
-                <Image
-                  className="book-list-thumb"
-                  src={
-                    volumeInfo.imageLinks
-                      ? volumeInfo.imageLinks.thumbnail
-                      : "/imgs/no-image.png"
-                  }
-                  height={volumeInfo.imageLinks ? 153 : 100}
-                  width={105}
-                  alt={volumeInfo.title}
-                />
+                {volumeInfo.imageLinks ? (
+                  <Image
+                    className="book-list-thumb"
+                    src={volumeInfo.imageLinks.thumbnail}
+                    height={153}
+                    width={105}
+                    alt={volumeInfo.title}
+                  />
+                ) : (
+                  <NoImage height={153} width={105} />
+                )}
 
                 <style jsx global>{`
                   .book-list-thumb {

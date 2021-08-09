@@ -36,12 +36,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <link
-          rel="preload"
-          href="/fonts/FontsFree-Net-SFProDisplay-Regular.ttf"
-          as="font"
-          crossOrigin=""
-        />
         <title>Find Book</title>
         <meta name="description" content="Find books" />
         <link rel="icon" href="/favicon.ico" />

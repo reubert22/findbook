@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Title } from "../Title/Title";
 import { getBooks } from "../../../api/books/service";
 import Link from "next/link";
+import { NoImage } from "../../NoImage/NoImage";
 
 type BooksType = {
   id: string;
@@ -16,9 +17,7 @@ type BooksType = {
 
 export const Discover = () => {
   const [first, setFirstBook] = useState<BooksType>();
-  console.log("Discover -> first", first);
   const [second, setSecondBook] = useState<BooksType>();
-  console.log("Discover -> second", second);
 
   const getBook = useCallback(async (title: string, author: string) => {
     try {
@@ -81,24 +80,24 @@ const Card = ({ item, reads }: { item: BooksType; reads: number }) => {
           </div>
         </div>
         <div className={styles["thumb-container"]}>
-          <div className={styles["img"]}>
-            <Image
-              className="avatar"
-              src={
-                item.volumeInfo.imageLinks
-                  ? item.volumeInfo.imageLinks.thumbnail
-                  : "/imgs/no-image.png"
-              }
-              height={109}
-              width={73}
-              alt="Home"
-            />
-            <style jsx global>{`
-              .avatar {
-                border-radius: 5px;
-              }
-            `}</style>
-          </div>
+          {item.volumeInfo.imageLinks ? (
+            <div className={styles["img"]}>
+              <Image
+                className="avatar"
+                src={item.volumeInfo.imageLinks.thumbnail}
+                height={109}
+                width={73}
+                alt="Home"
+              />
+              <style jsx global>{`
+                .avatar {
+                  border-radius: 5px;
+                }
+              `}</style>
+            </div>
+          ) : (
+            <NoImage height={109} width={73} />
+          )}
         </div>
       </div>
     </Link>

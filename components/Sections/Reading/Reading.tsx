@@ -4,6 +4,7 @@ import { Title } from "../Title/Title";
 import Image from "next/image";
 import { getBooks } from "../../../api/books/repository";
 import Link from "next/link";
+import { NoImage } from "../../NoImage/NoImage";
 
 export const Reading = () => {
   const [reading, setReading] = useState<{
@@ -38,16 +39,16 @@ export const Reading = () => {
 
       <div className={styles["reading-container"]}>
         <div className={styles["img"]}>
-          <Image
-            src={
-              reading?.volumeInfo.imageLinks
-                ? reading?.volumeInfo.imageLinks.thumbnail
-                : "/imgs/no-image.png"
-            }
-            height={136}
-            width={91}
-            alt="Home"
-          />
+          {reading?.volumeInfo.imageLinks ? (
+            <Image
+              src={reading?.volumeInfo.imageLinks.thumbnail}
+              height={136}
+              width={91}
+              alt="Home"
+            />
+          ) : (
+            <NoImage height={136} width={91} />
+          )}
         </div>
 
         <Link href={`/About?id=${reading?.id}`}>
