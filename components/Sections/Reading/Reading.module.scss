@@ -23,6 +23,7 @@
     }
 
     .reading {
+      cursor: pointer;
       background-color: $light-green;
       background-image: url("../../../public/imgs/svg/reading-bg.svg");
       background-position-y: -42px;

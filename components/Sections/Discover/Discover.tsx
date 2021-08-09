@@ -61,7 +61,7 @@ const Card = ({ item, reads }: { item: BooksType; reads: number }) => {
       <div className={styles["card-container"]}>
         <div className={styles["title-author-read-container"]}>
           <div className={styles["title-author-container"]}>
-            <span className={styles["title"]}>{item.volumeInfo.title}ㅤㅤ</span>
+            <span className={styles["title"]}>{item.volumeInfo.title}</span>
             <span className={styles["author"]}>
               {item.volumeInfo?.authors.toString()}
             </span>
@@ -98,6 +98,20 @@ const Card = ({ item, reads }: { item: BooksType; reads: number }) => {
           ) : (
             <NoImage height={109} width={73} />
           )}
+        </div>
+        <div className={styles["img-rounded"]}>
+          <Image src={"/imgs/svg/rounded.svg"} height={18} width={18} alt="" />
+        </div>
+        <div className={styles["img-triangle"]}>
+          <Image src={"/imgs/svg/triangle.svg"} height={28} width={32} alt="" />
+        </div>
+        <div className={styles["img-rectangle"]}>
+          <Image
+            src={"/imgs/svg/rectangle.svg"}
+            height={15}
+            width={46}
+            alt=""
+          />
         </div>
       </div>
     </Link>

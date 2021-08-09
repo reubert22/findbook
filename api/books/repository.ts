@@ -9,6 +9,7 @@ export const getBooks = (title: string, author?: string) =>
     params: {
       ...defaultParam,
       q: `${title}+inauthor:${author}`,
+      maxResults: "30",
     },
   });
 
