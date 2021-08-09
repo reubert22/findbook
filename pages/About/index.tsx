@@ -39,13 +39,40 @@ export default function About() {
   return (
     <div className={styles["container"]}>
       <main className={styles["main"]}>
-        <div className={styles["header-bg"]} />
+        <div className={styles["header-bg"]}>
+          <div className={styles["oval-blue"]}>
+            <Image
+              src={"/imgs/svg/ovalfullblue.svg"}
+              height={63}
+              width={63}
+              alt=""
+            />
+          </div>
+          <div className={styles["oval-pink"]}>
+            <Image
+              src={"/imgs/svg/ovalfullpink.svg"}
+              height={15}
+              width={15}
+              alt=""
+            />
+          </div>
+          <div className={styles["oval-rounded"]}>
+            <Image
+              src={"/imgs/svg/rounded.svg"}
+              height={24}
+              width={24}
+              alt=""
+            />
+          </div>
+          <div className={styles["oval-bottom"]}>
+            <Image src={"/imgs/svg/oval.svg"} height={48} width={48} alt="" />
+          </div>
+        </div>
 
         <LayoutContainer>
           <div className={styles["back-container"]}>
             <div onClick={() => back()} className={styles["img"]}>
               <Image
-                className="book-list-thumb"
                 src={"/imgs/svg/back.svg"}
                 height={14}
                 width={14}

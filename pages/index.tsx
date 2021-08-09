@@ -27,7 +27,13 @@ const Initial = () => {
     <div className={styles["container"]}>
       <main className={styles["main"]}>
         <Search value={filter} onChange={handleChange} />
-        {!!filter ? <List /> : <Home />}
+        {!!filter ? (
+          <div className={styles["search-list-container"]}>
+            <List />
+          </div>
+        ) : (
+          <Home />
+        )}
       </main>
     </div>
   );

@@ -70,6 +70,36 @@
       width: 100%;
       background-color: #fff6e5;
       border-radius: 0px 0px 100px 0px;
+      background-image: url("../../public/imgs/svg/ovaltopabout.svg");
+      background-repeat: no-repeat;
+      background-position-x: 105%;
+      background-position-y: -15px;
+      background-size: 100px;
+
+      .oval-blue {
+        position: absolute;
+        top: 115px;
+        left: 74px;
+      }
+
+      .oval-pink {
+        position: absolute;
+        top: 125px;
+        left: 47px;
+      }
+
+      .oval-rounded {
+        position: absolute;
+        top: 90px;
+        right: 103px;
+      }
+
+      .oval-bottom {
+        position: absolute;
+        top: 218.11px;
+        right: 100px;
+        transform: rotate(25deg);
+      }
     }
 
     .back-container {

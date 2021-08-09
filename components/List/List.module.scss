@@ -25,8 +25,10 @@
         margin-bottom: 5px;
 
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
+        height: 26px;
+        overflow: hidden;
       }
 
       .author {
@@ -37,9 +39,12 @@
         line-height: 12px;
         color: $gray-font;
 
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
+        // display: -webkit-box;
+        // -webkit-line-clamp: 3;
+        // -webkit-box-orient: vertical;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }

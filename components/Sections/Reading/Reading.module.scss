@@ -30,22 +30,16 @@
       border-bottom-right-radius: 5px;
       padding: 12px 19px;
 
-      .oval-wave {
-        position: absolute;
-        top: 0px;
-        left: calc(80% - 10px);
-        //mix-blend-mode: overlay;
-      }
+      background-image: url("../../../public/imgs/svg/reading-bg.svg");
+      // background-repeat: no-repeat;
+      // background-position-x: 105%;
+      // background-position-y: -15px;
+      // background-size: 69px;
 
-      .rounded {
-        width: 18px;
-        height: 18px;
-        position: absolute;
-        top: 10px;
-        left: calc(65% - 20px);
-        border-bottom-left-radius: 18px * 2;
-        border-bottom-right-radius: 18px * 2;
-      }
+      // background-image: url(/_next/static/media/reading-bg.63bc97f….svg);
+      background-repeat: no-repeat;
+      background-position-y: -42px;
+      background-size: 374px;
 
       .title-subtitles {
         height: 100%;

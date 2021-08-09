@@ -75,23 +75,6 @@ export const Reading = () => {
               </span>
             </div>
           </div>
-
-          <div className={styles["oval-wave"]}>
-            <Image
-              src="/imgs/svg/oval.svg"
-              height={69}
-              width={69}
-              alt="Oval wave"
-            />
-          </div>
-          <div className={styles["rounded"]}>
-            <Image
-              src="/imgs/svg/rounded.svg"
-              height={69}
-              width={69}
-              alt="Rounded"
-            />
-          </div>
         </div>
       </div>
     </div>

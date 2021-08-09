@@ -49,7 +49,7 @@ export const List: React.FC<ListProps> = ({ titleProps }) => {
                   `}</style>
                   <span className={styles["title"]}>{volumeInfo.title}</span>
                   <span className={styles["author"]}>
-                    by {volumeInfo.authors ? volumeInfo.authors[0] : ""}
+                    {volumeInfo.authors ? `by ${volumeInfo.authors[0]}` : ""}
                   </span>
                 </div>
               </Link>
