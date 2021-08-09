@@ -25,6 +25,14 @@ a {
 
 @font-face {
   font-display: swap;
+  font-family: "SFProDisplayR";
+  font-style: normal;
+  font-weight: 200;
+  src: url("/fonts/SFProDisplay/SFProDisplay-Regular.ttf");
+}
+
+@font-face {
+  font-display: swap;
   font-family: "SFProDisplaySB";
   font-style: normal;
   font-weight: 600;
@@ -41,7 +49,7 @@ a {
 
 @font-face {
   font-display: swap;
-  font-family: "PlayFairB";
+  font-family: "  ";
   font-style: normal;
   font-weight: 700;
   src: url("/fonts/PlayFair/PlayfairDisplay-Bold.ttf");

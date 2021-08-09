@@ -1,0 +1,19 @@
+@import "../../variables.scss";
+
+.container {
+  align-items: center;
+  background-color: $gray-one;
+  display: flex;
+  height: 109px;
+  justify-items: center;
+  width: 73px;
+  z-index: 2;
+
+  span {
+    color: $orange-white;
+    font-family: $SFProDisplay;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+  }
+}

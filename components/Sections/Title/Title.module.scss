@@ -1,24 +1,24 @@
 @import "../../../variables.scss";
 
 .container {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
 
   .title {
+    color: $input-placeholder;
     font-family: $SFProDisplay;
     font-size: 18px;
-    line-height: 21px;
     letter-spacing: 0.5px;
-    color: $input-placeholder;
+    line-height: 21px;
   }
 
   .more {
+    color: $light-blue;
     font-family: $SFProDisplay;
     font-size: 14px;
     line-height: 16px;
     text-align: right;
-    color: $light-blue;
   }
 }

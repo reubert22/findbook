@@ -1,28 +1,28 @@
 @import "../../../variables.scss";
 
 .container {
-  position: relative;
   margin: 30px 0px;
+  position: relative;
 
   .scroller {
     display: flex;
-    width: 100%;
     height: 500px;
     margin: auto;
     overflow: scroll;
+    width: 100%;
 
     .spacer {
-      min-width: 5.5%;
       height: 80%;
       margin: auto;
+      min-width: 5.5%;
     }
 
     .card {
-      min-width: 75%;
+      background: $white;
       height: 80%;
-      margin: auto;
       margin-right: 20px;
-      background: white;
+      margin: auto;
+      min-width: 75%;
       transition: 0.5s ease;
 
       &:hover {
@@ -41,37 +41,36 @@
 
   .oval {
     position: absolute;
-    top: 0px;
     right: 0px;
+    top: 0px;
   }
 
   .slider-container {
+    align-items: center;
+    display: flex;
     overflow-x: hidden;
     overflow-y: hidden;
     white-space: nowrap;
-    display: flex;
-    align-items: center;
 
     .card-container {
-      width: 250px;
-      height: 128px;
-      background-color: #451475;
-      border-radius: 5px;
-      padding: 15px 20px;
-      display: flex;
       align-items: center;
+      background-color: $purple;
+      border-radius: 5px;
+      display: flex;
+      height: 128px;
       justify-content: space-between;
       margin-right: 10px;
+      padding: 15px 20px;
+      width: 250px;
 
       &:first-child {
+        background-color: $dark-blue;
+        background-image: url("../../../public/imgs/svg/card-bg.svg");
+        background-position-y: 25px;
+        background-repeat: no-repeat;
+        background-size: 374px;
         height: 139px;
         margin-left: 20px;
-        background-color: $dark-blue;
-
-        background-image: url("../../../public/imgs/svg/card-bg.svg");
-        background-repeat: no-repeat;
-        background-position-y: 25px;
-        background-size: 374px;
 
         @media (min-width: $md) {
           margin-left: 50px;
@@ -83,45 +82,45 @@
       }
 
       .title-author-read-container {
-        width: 50%;
-        height: 100%;
         display: flex;
         flex-direction: column;
+        height: 100%;
         justify-content: space-between;
+        width: 50%;
 
         .title-author-container {
           display: flex;
           flex-direction: column;
 
           .title {
-            margin-bottom: 5px;
-            //font-family: Playfair Display;
+            color: $almost-white;
+            font-family: $PlayFairB;
+            font-size: 27px;
             font-style: normal;
             font-weight: bold;
-            font-size: 27px;
-            line-height: 36px;
             letter-spacing: 2px;
-            color: #fefefe;
+            line-height: 36px;
+            margin-bottom: 5px;
           }
 
           .author {
+            color: $almost-white-two;
             font-family: $SFProDisplay;
             font-size: 14px;
-            line-height: 16px;
-            letter-spacing: 1.28889px;
-            color: #e7e7e1;
             font-style: italic;
+            letter-spacing: 1.28889px;
+            line-height: 16px;
           }
         }
 
         .read-container {
-          display: flex;
           align-items: center;
+          display: flex;
 
           .img {
-            width: 16px;
             height: 16px;
             margin-right: 2px;
+            width: 16px;
           }
 
           .read-number {
@@ -129,12 +128,12 @@
           }
           .read-number,
           .title {
+            color: $almost-white-two;
             font-family: $SFProDisplayB;
-            font-style: normal;
             font-size: 12px;
-            line-height: 14px;
+            font-style: normal;
             letter-spacing: 0.020635px;
-            color: #e7e7e1;
+            line-height: 14px;
           }
 
           .title {
@@ -144,14 +143,31 @@
       }
 
       .thumb-container {
-        width: 50%;
-        display: flex;
         align-items: center;
+        display: flex;
         justify-content: flex-end;
+        width: 50%;
 
         .img {
           height: 109px;
           width: 73px;
+        }
+
+        .no-image {
+          align-items: center;
+          background-color: $gray-one;
+          display: flex;
+          height: 109px;
+          justify-items: center;
+          width: 73px;
+
+          span {
+            color: $orange-white;
+            font-family: $SFProDisplay;
+            font-size: 12px;
+            text-align: center;
+            width: 100%;
+          }
         }
       }
     }
