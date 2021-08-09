@@ -16,7 +16,7 @@ const Initial = () => {
       setFilter(e.target.value);
       setTimeout(async () => {
         if (e.target.value.length > 0) {
-          const response = await getBooks(e.target.value);
+          const response = await getBooks({ title: e.target.value });
           books.setBooks(response.data);
         }
       }, 1000);
@@ -29,7 +29,7 @@ const Initial = () => {
         <Search value={filter} onChange={handleChange} />
         {!!filter ? (
           <div className={styles["search-list-container"]}>
-            <List />
+            <List search={filter} />
           </div>
         ) : (
           <Home />

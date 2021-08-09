@@ -23,7 +23,7 @@ export const Discover = () => {
     try {
       const {
         data: { items },
-      } = await getBooks(title, author);
+      } = await getBooks({ title, author });
       if (items.length > 0) {
         title === "Hooked" ? setFirstBook(items[0]) : setSecondBook(items[0]);
       }

@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const handleGetBooks = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await getBooks();
+      const response = await getBooks({});
       books.setBooks(response.data);
     } catch (e) {}
     setTimeout(() => {

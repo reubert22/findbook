@@ -4,12 +4,13 @@ const defaultParam = {
   key: process.env.API_KEY,
 };
 
-export const getBooks = (title: string, author?: string) =>
+export const getBooks = (title: string, author?: string, offset?: string) =>
   apiClient.get("", {
     params: {
       ...defaultParam,
       q: `${title}+inauthor:${author}`,
-      maxResults: "30",
+      startIndex: offset,
+      maxResults: "10",
     },
   });
 

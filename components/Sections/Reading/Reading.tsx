@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect } from "react";
 import styles from "./Reading.module.scss";
 import { Title } from "../Title/Title";
 import Image from "next/image";
-import { getBooks } from "../../../api/books/repository";
+import { getBooks } from "../../../api/books/service";
 import Link from "next/link";
 import { NoImage } from "../../NoImage/NoImage";
 
@@ -22,7 +22,7 @@ export const Reading = () => {
     try {
       const {
         data: { items },
-      } = await getBooks("Originals", "Adam Grant");
+      } = await getBooks({ title: "Originals", author: "Adam Grant" });
       if (items.length > 0) {
         setReading(items[0]);
       }

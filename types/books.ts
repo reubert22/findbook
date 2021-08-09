@@ -13,5 +13,5 @@ export type BookContextType = {
     items: any[];
     totalItems: number;
   };
-  setBooks: (param: string) => void;
+  setBooks: (param: State) => void;
 };

@@ -15,7 +15,7 @@ export const Reviews = () => {
     try {
       const {
         data: { items },
-      } = await getBooks("dont make me think", "Steve Krug");
+      } = await getBooks({ title: "dont make me think", author: "Steve Krug" });
       if (items.length > 0) {
         setReviewVolume(items[0]);
       }
