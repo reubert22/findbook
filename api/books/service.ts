@@ -1,7 +1,7 @@
 import * as repository from "./repository";
 
 export const getBooks = async ({
-  title = "cigarro de palha",
+  title = "js",
   author = "",
   offset = "0",
 }: {
